@@ -1,0 +1,28 @@
+<div class="container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+        <ng-container matColumnDef="extensions">
+            <th mat-header-cell *matHeaderCellDef> Extensions </th>
+            <td mat-cell *matCellDef="let element"> {{element.extensions}} </td>
+        </ng-container>
+        <ng-container matColumnDef="ransomNoteFilenames">
+            <th mat-header-cell *matHeaderCellDef> Ransom Note Filenames </th>
+            <td mat-cell *matCellDef="let element"> {{element.ransomNoteFilenames}} </td>
+        </ng-container>
+        <ng-container matColumnDef="encryptionAlgorithm">
+            <th mat-header-cell *matHeaderCellDef> Encryption Algorithm </th>
+            <td mat-cell *matCellDef="let element"> {{element.encryptionAlgorithm}} </td>
+        </ng-container>
+        <ng-container matColumnDef="microsoftDetectionName">
+            <th mat-header-cell *matHeaderCellDef> Microsoft Detection Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.microsoftDetectionName}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSize]="pageSize" [pageSizeOptions]="[10, 20, 50]" (page)="onPageChange($event)">
+    </mat-paginator>
+</div>
